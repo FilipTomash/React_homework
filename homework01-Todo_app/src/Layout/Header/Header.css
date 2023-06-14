@@ -1,0 +1,13 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  background-color: darkslategray;
+  color: lightgrey;
+  padding: 20px;
+  align-items: center;
+}
+
+.Header h1 {
+  font-family: "Kanit", sans-serif;
+  margin: 0;
+}

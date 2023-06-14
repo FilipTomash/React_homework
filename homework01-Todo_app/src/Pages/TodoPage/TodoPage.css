@@ -1,0 +1,28 @@
+.TodoPage {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.TodoPage h2 {
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  font-size: 28px;
+}
+
+.TodoPage .Todo-container {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px;
+  align-content: flex-end;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.TodoPage .Todo-counters {
+  display: flex;
+  font-size: 25px;
+  font-weight: 600;
+  gap: 30px;
+  margin: 150px 0 0 0;
+  justify-content: center;
+}
