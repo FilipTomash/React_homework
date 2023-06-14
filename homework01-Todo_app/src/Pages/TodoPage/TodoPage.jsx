@@ -2,9 +2,7 @@ import TodoCard from "../../Components/TodoCard/TodoCard";
 import "./TodoPage.css";
 
 function TodoPage(props) {
-  const finishedTasks = [];
-  const unfinishedTasks = [];
-  const TodoMockData = [
+  const todoMockData = [
     {
       id: 1,
       text: "Wash the dishes",
@@ -41,26 +39,27 @@ function TodoPage(props) {
       priority: "low",
     },
   ];
-  {
-    TodoMockData.map((task) =>
-      task.isFinished
-        ? finishedTasks.push(task.id)
-        : unfinishedTasks.push(task.id)
-    );
-  }
+
+  const todoStats = todoMockData.reduce(
+    (acc, task) => {
+      task.isFinished ? acc.finished++ : acc.unfinished++;
+      return acc;
+    },
+    { finished: 0, unfinished: 0 }
+  );
 
   return (
     <section className="TodoPage">
       <h2>{props.pageTitle}</h2>
       <div className="Todo-container">
-        {TodoMockData.map((todoTask) => (
+        {todoMockData.map((todoTask) => (
           <TodoCard key={todoTask.id} todoTask={todoTask} />
         ))}
       </div>
       <div className="Todo-counters">
-        <p>To do Tasks: {TodoMockData.length}</p>
-        <p>Finished Tasks: {finishedTasks.length}</p>
-        <p>Unfinished Tasks:{unfinishedTasks.length}</p>
+        <p>To do Tasks: {todoMockData.length}</p>
+        <p>Finished Tasks: {todoStats.finished}</p>
+        <p>Unfinished Tasks:{todoStats.unfinished}</p>
       </div>
     </section>
   );
