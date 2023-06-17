@@ -1,0 +1,29 @@
+.PlanetsPage {
+  display: flex;
+  justify-content: space-between;
+}
+.planetDetailsDisplayBtn {
+  display: flex;
+  justify-content: center;
+  margin: 0 20px;
+  min-height: 40px;
+}
+
+.page-controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.page-display {
+  display: flex;
+  justify-content: center;
+}
+
+.page-display p {
+  padding: 10px;
+  border: 2px solid;
+  background-color: aliceblue;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: 600;
+}

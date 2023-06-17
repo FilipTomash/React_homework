@@ -1,0 +1,14 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #0b2e59;
+  height: 50px;
+}
+
+.Header h1 {
+  color: aliceblue;
+  margin: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}

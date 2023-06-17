@@ -1,0 +1,12 @@
+.PlanetsListItem {
+  border-radius: 4px;
+  background-color: lavenderblush;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.PlanetsListItem:hover {
+  cursor: pointer;
+  transition: 0.2s ease-in;
+  background-color: rgb(134, 199, 255);
+}
