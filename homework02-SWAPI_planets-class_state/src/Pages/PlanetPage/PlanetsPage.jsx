@@ -63,20 +63,6 @@ class PlanetsPage extends React.Component {
     }));
   }
 
-  toggleNextBtn() {
-    if (!this.state.nextPage) {
-      return "hidden";
-    }
-    return "visible";
-  }
-
-  togglePrevBtn() {
-    if (!this.state.prevPage) {
-      return "hidden";
-    }
-    return "visible";
-  }
-
   onSelectedPlanet(planetIndex) {
     this.setState((prevState) => ({
       selectedPlanet: prevState.planets[planetIndex],
@@ -118,12 +104,16 @@ class PlanetsPage extends React.Component {
           <Button
             btnText="Previous page"
             onBtnClick={this.prevPageMethod.bind(this)}
-            btnStyle={{ visibility: this.togglePrevBtn() }}
+            btnStyle={{
+              visibility: !this.state.prevPage ? "hidden" : "visible",
+            }}
           />
           <Button
             btnText="Next page"
             onBtnClick={this.nextPageMethod.bind(this)}
-            btnStyle={{ visibility: this.toggleNextBtn() }}
+            btnStyle={{
+              visibility: !this.state.nextPage ? "hidden" : "visible",
+            }}
           />
         </div>
       </>
