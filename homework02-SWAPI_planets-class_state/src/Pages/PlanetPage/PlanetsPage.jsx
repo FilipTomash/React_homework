@@ -5,8 +5,7 @@ import Button from "../../Components/Button/Button";
 import PlanetsList from "../../Components/PlanetList/PlanetsList";
 import PlanetDetails from "../../Components/PlanetDetails/PlanetDetails";
 
-// const SWAPI_URL = `https://swapi/dev/api/planets`;
-const SWAPI_URL = `https://swapi.dev/api/planets/?page=1&format=json`;
+const SWAPI_URL = "https://swapi.dev/api/planets";
 
 class PlanetsPage extends React.Component {
   constructor(props) {
@@ -30,7 +29,6 @@ class PlanetsPage extends React.Component {
         nextPage: response.data.next,
         prevPage: response.data.previous,
       });
-      console.log(response.data.results);
     });
     this.setState((prevState) => {
       if (prevState.page >= 6) return prevState;
@@ -67,20 +65,16 @@ class PlanetsPage extends React.Component {
 
   toggleNextBtn() {
     if (!this.state.nextPage) {
-      console.log("none");
-      return "none";
+      return "hidden";
     }
-    console.log("flex");
-    return "flex";
+    return "visible";
   }
 
   togglePrevBtn() {
     if (!this.state.prevPage) {
-      console.log("none");
-      return "none";
+      return "hidden";
     }
-    console.log("block");
-    return "block";
+    return "visible";
   }
 
   onSelectedPlanet(planetIndex) {
@@ -124,12 +118,12 @@ class PlanetsPage extends React.Component {
           <Button
             btnText="Previous page"
             onBtnClick={this.prevPageMethod.bind(this)}
-            btnStyle={{ display: this.togglePrevBtn() }}
+            btnStyle={{ visibility: this.togglePrevBtn() }}
           />
           <Button
             btnText="Next page"
             onBtnClick={this.nextPageMethod.bind(this)}
-            btnStyle={{ display: this.toggleNextBtn() }}
+            btnStyle={{ visibility: this.toggleNextBtn() }}
           />
         </div>
       </>
