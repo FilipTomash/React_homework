@@ -12,8 +12,17 @@ const PlanetsPage = () => {
   const [selectedPlanet, setSelectedPlanet] = useState(null);
   const [isPlanetDetailsShown, setIsPlanetDetailsShown] = useState(true);
   const [page, setPage] = useState(1);
+  const [count, setCount] = useState(null);
   const [prevPage, setPrevPage] = useState(null);
   const [nextPage, setNextPage] = useState(null);
+
+  useEffect(() => {
+    axios.get(SWAPI_URL).then((response) => {
+      setPlanets(response.data.results);
+      setNextPage(response.data.next);
+      setCount(Math.floor(response.data.count / 10));
+    });
+  }, []);
 
   const nextPageFunc = async () => {
     if (!nextPage) return;
@@ -22,7 +31,7 @@ const PlanetsPage = () => {
       setNextPage(response.data.next);
       setPrevPage(response.data.previous);
     });
-    if (page >= 6) return;
+    if (page >= count) return;
 
     return setPage(page + 1);
   };
@@ -45,13 +54,6 @@ const PlanetsPage = () => {
 
   const onSelectedPlanet = (planetIndex) =>
     setSelectedPlanet(planets[planetIndex]);
-
-  useEffect(() => {
-    axios.get(SWAPI_URL).then((response) => {
-      setPlanets(response.data.results);
-      setNextPage(response.data.next);
-    });
-  }, []);
 
   return (
     <>
