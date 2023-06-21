@@ -1,0 +1,10 @@
+.PlanetList {
+  list-style: none;
+  border-radius: 3px;
+  font-size: 25px;
+  background-color: #9e0c39;
+  width: 35%;
+  margin: 0 15px;
+  padding: 0;
+  padding: 15px 20px;
+}

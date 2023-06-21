@@ -1,0 +1,20 @@
+.Navbar {
+  margin: 0 20px;
+}
+
+.Navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  font-size: 18px;
+}
+
+.Navbar ul a {
+  text-decoration: none;
+  color: darkgray;
+  transition: 0.2s ease-in-out;
+}
+
+.Navbar ul a:hover {
+  color: whitesmoke;
+}
